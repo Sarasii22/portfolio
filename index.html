@@ -10,6 +10,12 @@
     .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
     .project-card { transition: all 0.3s; }
     .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 1s ease-out forwards; }
+    .initial-hidden { opacity: 0; }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-200 font-sans">
@@ -22,12 +28,11 @@
         <a href="#about" class="hover:text-emerald-400 transition">About</a>
         <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
         <a href="#projects" class="hover:text-emerald-400 transition">Projects</a>
+        <a href="#engagements" class="hover:text-emerald-400 transition">Engagements</a>
+        <a href="#articles" class="hover:text-emerald-400 transition">Articles</a>
         <a href="#education" class="hover:text-emerald-400 transition">Education</a>
         <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
       </div>
-      <a href="https://github.com/Sarasii22" target="_blank" class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 px-5 py-2 rounded-full text-sm font-medium">
-        <i class="fab fa-github"></i> GitHub
-      </a>
     </div>
   </nav>
 
@@ -37,7 +42,7 @@
       <div>
         <h1 class="text-6xl md:text-7xl font-bold leading-tight">Hi, I'm <span class="text-emerald-400">Sarasi Madahasi</span></h1>
         <p class="mt-4 text-2xl text-slate-400">Third-Year Computer Engineering Undergraduate<br>AI/ML Engineer & Full-Stack Developer</p>
-        <p class="mt-8 text-lg max-w-md text-slate-300">Passionate about building AI-powered solutions in healthcare, safety, and intelligent systems. Currently building data-driven web apps and computer vision projects.</p>
+        <p class="mt-8 text-lg max-w-md text-slate-300">Passionate about building AI-powered solutions in healthcare, safety, and intelligent systems.</p>
         
         <div class="mt-10 flex gap-4">
           <a href="#projects" class="bg-emerald-500 hover:bg-emerald-600 px-8 py-4 rounded-full font-medium text-lg">See My Projects</a>
@@ -45,14 +50,7 @@
             <i class="fas fa-download"></i> Download CV
           </a>
         </div>
-        
-        <div class="mt-12 flex gap-6 text-3xl">
-          <a href="https://linkedin.com/in/sarasii/" target="_blank" class="hover:text-emerald-400"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/Sarasii22" target="_blank" class="hover:text-emerald-400"><i class="fab fa-github"></i></a>
-          <a href="mailto:sarasimadahasi@gmail.com" class="hover:text-emerald-400"><i class="fas fa-envelope"></i></a>
-        </div>
       </div>
-      
       <div class="flex justify-center">
         <img src="profile.jpg" alt="Sarasi Madahasi" class="w-80 h-80 object-cover rounded-3xl shadow-2xl border-4 border-emerald-400">
       </div>
@@ -61,12 +59,8 @@
 
   <!-- ABOUT -->
   <section id="about" class="py-24 bg-slate-900">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
-      <div class="max-w-3xl mx-auto text-lg leading-relaxed text-slate-300">
-        <p>Third-year Computer Engineering undergraduate at University of Ruhuna with a strong focus on Artificial Intelligence and Machine Learning. I build data-driven applications in computer vision, NLP, and predictive analytics. Passionate about applying AI to real-world problems in healthcare, road safety, and energy-efficient intelligent systems.</p>
-        <p class="mt-6">I also love full-stack web development and DevOps — from React + Node.js apps to Dockerized CI/CD pipelines on AWS.</p>
-      </div>
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="text-xl max-w-3xl mx-auto">Third-year Computer Engineering student at University of Ruhuna with strong experience in AI/ML, computer vision, full-stack development, and DevOps. Passionate about applying technology to real-world problems in healthcare, road safety, and energy management.</p>
     </div>
   </section>
 
@@ -75,141 +69,202 @@
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-3xl">
-          <h3 class="text-emerald-400 text-xl mb-4">AI & Machine Learning</h3>
-          <p class="text-slate-400">Data Preprocessing • ANN • CNN • KNN • NLP • Scikit-learn • TensorFlow • PyTorch • U-Net++ • Pandas • NumPy • Matplotlib</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl">
-          <h3 class="text-emerald-400 text-xl mb-4">Web & Full-Stack</h3>
-          <p class="text-slate-400">HTML • CSS • JavaScript • React.js • Node.js • Express.js • Flask • Spring Boot • Figma • MongoDB • SQLite</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl">
-          <h3 class="text-emerald-400 text-xl mb-4">DevOps & Hardware</h3>
-          <p class="text-slate-400">Docker • Jenkins • AWS • CI/CD • Linux • Arduino/ESP32 • OpenCV • Git • Postman • Jira</p>
-        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl"><h3 class="text-emerald-400 text-xl mb-4">AI & Machine Learning</h3><p class="text-slate-400">ANN, CNN, U-Net++, NLP, Scikit-learn, TensorFlow, PyTorch, Pandas, NumPy</p></div>
+        <div class="bg-slate-900 p-8 rounded-3xl"><h3 class="text-emerald-400 text-xl mb-4">Web & Full-Stack</h3><p class="text-slate-400">React.js, Node.js, Express.js, Flask, HTML/CSS/JS, MongoDB, SQLite</p></div>
+        <div class="bg-slate-900 p-8 rounded-3xl"><h3 class="text-emerald-400 text-xl mb-4">DevOps & Hardware</h3><p class="text-slate-400">Docker, Jenkins, AWS, CI/CD, OpenCV, Arduino/ESP32, Linux</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (now with more details + links) -->
   <section id="projects" class="py-24 bg-slate-900">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
       <div class="grid md:grid-cols-2 gap-8">
 
-        <!-- Project 1 -->
-        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800">
-          <div class="h-48 bg-slate-800 flex items-center justify-center text-6xl">🩺</div>
-          <div class="p-8">
-            <h3 class="text-xl font-semibold">Skin Cancer Stage Detection System</h3>
-            <p class="text-emerald-400 text-sm mt-1">AI Dermatology Tool</p>
-            <p class="mt-4 text-slate-400 text-sm">U-Net++ segmentation + CNN classification + ABCD feature extraction + automated PDF reports for clinicians.</p>
-            <p class="mt-4 text-xs text-slate-500">Python • TensorFlow/PyTorch • OpenCV</p>
+        <!-- Skin Cancer -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/skin-cancer.png" alt="Skin Cancer Detection System" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">Skin Cancer Stage Detection System</h3>
+          <p class="text-emerald-400 text-sm mt-1">AI Dermatology Diagnostic Tool</p>
+          <p class="mt-4 text-slate-300">U-Net++ for lesion segmentation, CNN for melanoma classification, ABCD feature extraction & automated PDF report generation for clinicians.</p>
+          <p class="mt-4 text-xs text-slate-500">Python • TensorFlow/PyTorch • OpenCV</p>
+          <div class="mt-6 flex gap-4">
+            <a href="https://github.com/YOUR-GITHUB-LINK" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://your-demo-link.com" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800">
-          <div class="h-48 bg-slate-800 flex items-center justify-center text-6xl">📊</div>
-          <div class="p-8">
-            <h3 class="text-xl font-semibold">HealthForecast – AI Health Risk Prediction</h3>
-            <p class="text-emerald-400 text-sm mt-1">Ongoing</p>
-            <p class="mt-4 text-slate-400 text-sm">Predicts health risks from daily lifestyle data and gives personalized recommendations.</p>
-            <p class="mt-4 text-xs text-slate-500">Python • Scikit-learn • Pandas • Flask</p>
+        <!-- HealthForecast -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/healthforecast.jpg" alt="HealthForecast AI Health Risk Prediction" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">HealthForecast – AI Health Risk Prediction</h3>
+          <p class="text-emerald-400 text-sm mt-1">Ongoing</p>
+          <p class="mt-4 text-slate-300">Predicts health risks from daily lifestyle data and gives personalized recommendations using machine learning.</p>
+          <p class="mt-4 text-xs text-slate-500">Python • Scikit-learn • Pandas • Flask</p>
+          <div class="mt-6 flex gap-4">
+            <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800">
-          <div class="h-48 bg-slate-800 flex items-center justify-center text-6xl">🧠</div>
-          <div class="p-8">
-            <h3 class="text-xl font-semibold">MindBridge – Mental Health Platform</h3>
-            <p class="mt-4 text-slate-400 text-sm">AI chatbot + anonymous therapist matching + peer support communities.</p>
-            <p class="mt-4 text-xs text-slate-500">React.js • Node.js • Express.js</p>
+        <!-- MindBridge -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/mindbridge.png" alt="MindBridge Mental Health Platform" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">MindBridge – Mental Health Platform</h3>
+          <p class="mt-4 text-slate-300">AI chatbot, anonymous therapist matching, peer support communities and wellness tools.</p>
+          <p class="mt-4 text-xs text-slate-500">React.js • Node.js • Express.js</p>
+          <div class="mt-6 flex gap-4">
+            <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
-        <!-- Project 4 -->
-        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800">
-          <div class="h-48 bg-slate-800 flex items-center justify-center text-6xl">🚗</div>
-          <div class="p-8">
-            <h3 class="text-xl font-semibold">Context-Aware Road Accident Risk Prediction</h3>
-            <p class="mt-4 text-slate-400 text-sm">ANN model predicting low/medium/high risk based on driving conditions.</p>
-            <p class="mt-4 text-xs text-slate-500">TensorFlow • Scikit-learn • Pandas</p>
+        <!-- Road Accident -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/road-accident.jpg" alt="Road Accident Risk Prediction" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">Context-Aware Road Accident Risk Prediction</h3>
+          <p class="mt-4 text-slate-300">ANN model predicting low/medium/high risk based on contextual driving conditions.</p>
+          <p class="mt-4 text-xs text-slate-500">TensorFlow • Scikit-learn • Pandas</p>
+          <div class="mt-6 flex gap-4">
+            <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
-        <!-- Project 5 -->
-        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800">
-          <div class="h-48 bg-slate-800 flex items-center justify-center text-6xl">💰</div>
-          <div class="p-8">
-            <h3 class="text-xl font-semibold">Personal Expense Tracker (DevOps)</h3>
-            <p class="mt-4 text-slate-400 text-sm">Full-stack expense app with automated CI/CD, Docker & AWS deployment.</p>
-            <p class="mt-4 text-xs text-slate-500">React • Node.js • Docker • Jenkins • AWS</p>
+        <!-- Expense Tracker -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/expense-tracker.jpg" alt="Personal Expense Tracker" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">Personal Expense Tracker (DevOps)</h3>
+          <p class="mt-4 text-slate-300">Full-stack expense app with automated CI/CD pipelines, Docker & AWS deployment.</p>
+          <p class="mt-4 text-xs text-slate-500">React • Node.js • Docker • Jenkins • AWS</p>
+          <div class="mt-6 flex gap-4">
+            <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
-        <!-- Project 6 -->
-        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800">
-          <div class="h-48 bg-slate-800 flex items-center justify-center text-6xl">📷</div>
-          <div class="p-8">
-            <h3 class="text-xl font-semibold">VisionX – Smart Occupancy Detection</h3>
-            <p class="mt-4 text-slate-400 text-sm">Real-time computer vision system for energy management using RGB/thermal cameras.</p>
-            <p class="mt-4 text-xs text-slate-500">OpenCV • TensorFlow • IoT</p>
+        <!-- VisionX -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/visionx.jpg" alt="VisionX Smart Occupancy Detection" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">VisionX – Smart Occupancy Detection</h3>
+          <p class="mt-4 text-slate-300">Real-time computer vision system using RGB/thermal cameras for energy management.</p>
+          <p class="mt-4 text-xs text-slate-500">OpenCV • TensorFlow • IoT</p>
+          <div class="mt-6 flex gap-4">
+            <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
+      </div>
+      <div class="text-center mt-12">
+        <button id="see-more-btn" class="bg-emerald-500 hover:bg-emerald-600 px-8 py-4 rounded-full font-medium text-lg inline-flex items-center gap-2" onclick="toggleMoreProjects()">See More Projects ↓</button>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION & ACHIEVEMENTS -->
-  <section id="education" class="py-24 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-      <div>
-        <h2 class="text-4xl font-bold mb-8">Education</h2>
+  <section id="more-projects" class="py-20 bg-slate-950 hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-10">More Projects</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Simple card example -->
+      <div class="bg-slate-900 p-6 rounded-2xl">
+        <h3 class="text-lg font-semibold">Sleep Quality Prediction</h3>
+        <p class="text-sm text-slate-400 mt-2">ML model comparing classifiers on lifestyle factors</p>
+        <p class="text-xs text-slate-500 mt-3">Python • Scikit-learn • Pandas</p>
+        <a href="#" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+      </div>
+      <!-- Repeat for others -->
+    </div>
+  </div>
+</section>
+
+  <!-- UNIVERSITY ENGAGEMENTS -->
+  <section id="engagements" class="py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">University Engagements</h2>
+      <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-slate-900 p-8 rounded-3xl">
-          <p class="font-medium text-emerald-400">BSc (Hons) in Computer Engineering</p>
-          <p class="text-slate-400">University of Ruhuna • 2023 – Present</p>
-          <p class="mt-4 text-sm text-slate-500">Relevant Coursework: Artificial Intelligence, Machine Learning, Image Processing, Web Development, DevOps, Embedded Systems</p>
+          <img src="images/ieee-xtream.jpeg" alt="IEEE Xtream 19.0" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <p class="font-semibold text-emerald-400">IEEE Xtream 19.0 – Student Branch University of Ruhuna</p>
+          <p class="text-slate-400">Team Lead – Program Team (2025)</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl">
+          <img src="images/rextro.png" alt="ReXtro 2025 Silver Jubilee Exhibition" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <p class="font-semibold text-emerald-400">ReXtro – 2025 Silver Jubilee Exhibition</p>
+          <p class="text-slate-400">Team Member – Event Management Committee<br>(Team Lead – Guest Lectures)</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl">
+          <img src="images/mehewara.jpg" alt="Mehewara Rural Education Support" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <p class="font-semibold text-emerald-400">Mehewara – Rural Education Support</p>
+          <p class="text-slate-400">2023 – 2024<br>Taught Mathematics to GCE O/L students in rural schools</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl">
+          <img src="images/devthon.jpg" alt="Devthon 2.0 Finals Achievement" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <p class="font-semibold text-emerald-400">Devthon 2.0 – Finals Achievement</p>
+          <p class="text-slate-400">Team PixelFix reached the finals of Devthon 2.0, a web development competition. Our project Mind Bridge is a safe, anonymous mental-health support platform providing AI support, therapist connections, and peer communities. Proud of teammates Abishek Jayathilake, Layuri Sooriyaarachchi, Avishka Weerasekara, and Nilanka Maduwantha.</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl">
+          <img src="images/eminence.jpg" alt="Eminence 5.0 9th Place Achievement" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <p class="font-semibold text-emerald-400">Eminence 5.0 - Top 10</p>
+          <p class="text-slate-400">Team Aura secured 9th place at Eminence 5.0 Inter-University Competition. Challenges included Power System Simulation (MATLAB), Network Design (Packet Tracer), Machine Learning, and innovation pitching.Teammates: Sayuru Priyanjana, Emasha Chathuni Medakanda.</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl">
+          <img src="images/red-cypher.jpg" alt="Red Cypher 2.0 Top 20 Achievement" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <p class="font-semibold text-emerald-400">Red Cypher 2.0</p>
+          <p class="text-slate-400">Team SudoQ participated in Red Cypher 2.0 – Decode. Exploit. Capture the Flag, a cybersecurity CTF competition by IEEE Computer Society – University of Ruhuna. Finished among the Top 20 teams. Teammates: Jayani Perera, Layuri Sooriyaarachchi.</p>
         </div>
       </div>
-      <div>
-        <h2 class="text-4xl font-bold mb-8">Achievements</h2>
-        <ul class="space-y-6 text-sm">
-          <li class="flex gap-4"><span class="text-emerald-400">🏆</span> IEEEXtreme 19.0 – 10th Place Sri Lanka, 261st Global</li>
-          <li class="flex gap-4"><span class="text-emerald-400">🏆</span> Devthon 2.0 – Finalist (Top 12)</li>
-          <li class="flex gap-4"><span class="text-emerald-400">📜</span> AI/ML Engineer Stage 1 (SLIIT) • Python for Beginners (UoM)</li>
-        </ul>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section id="articles" class="py-24 bg-slate-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Articles & Blog Posts</h2>
+      <div class="text-center text-slate-400 mb-12">
+        <p>Coming soon — I’ll be publishing technical articles on AI/ML, computer vision and DevOps here.</p>
       </div>
+      <!-- Add your articles here later in the same card style -->
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-8">Education</h2>
+      <p class="text-2xl">BSc (Hons) in Computer Engineering</p>
+      <p class="text-slate-400">University of Ruhuna • 2023 – Present</p>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-24 bg-slate-900">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-8">Let's Connect</h2>
-      <p class="text-slate-400 mb-8">sarasimadahasi@gmail.com • +94 71 315 9665</p>
-      <div class="flex justify-center gap-6 text-4xl">
-        <a href="https://linkedin.com/in/sarasii/" class="hover:text-emerald-400"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/Sarasii22" class="hover:text-emerald-400"><i class="fab fa-github"></i></a>
-      </div>
+  <section id="contact" class="py-24 bg-slate-900 text-center">
+    <h2 class="text-4xl font-bold mb-8">Let's Connect</h2>
+    <p class="text-xl">sarasimadahasi@gmail.com • +94 71 315 9665</p>
+    <div class="flex justify-center gap-8 text-4xl mt-10">
+      <a href="https://linkedin.com/in/sarasii/" target="_blank" class="hover:text-emerald-400"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Sarasii22" target="_blank" class="hover:text-emerald-400"><i class="fab fa-github"></i></a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="bg-black py-8 text-center text-xs text-slate-500">
     © 2026 Sarasi Madahasi • Built with ❤️ in Sri Lanka
   </footer>
 
   <script>
-    // Simple smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
+    function toggleMoreProjects() {
+      const section = document.getElementById('more-projects');
+      const button = document.getElementById('see-more-btn');
+      if (section.classList.contains('hidden')) {
+        section.classList.remove('hidden');
+        button.innerHTML = 'Hide More Projects ↑';
+      } else {
+        section.classList.add('hidden');
+        button.innerHTML = 'See More Projects ↓';
+      }
+    }
   </script>
+
 </body>
 </html>
