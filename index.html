@@ -8,14 +8,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
-    .project-card { transition: all 0.3s; }
-    .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .project-card { transition: all 0.4s ease; }
+    .project-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.3); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .fade-in { animation: fadeIn 1s ease-out forwards; }
-    .initial-hidden { opacity: 0; }
+
+    .section-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .section-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-stagger {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s ease-out;
+    }
+
+    .card-stagger.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-200 font-sans">
@@ -29,6 +50,7 @@
         <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
         <a href="#projects" class="hover:text-emerald-400 transition">Projects</a>
         <a href="#engagements" class="hover:text-emerald-400 transition">Engagements</a>
+        <a href="#certifications" class="hover:text-emerald-400 transition">Certifications</a>
         <a href="#articles" class="hover:text-emerald-400 transition">Articles</a>
         <a href="#education" class="hover:text-emerald-400 transition">Education</a>
         <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
@@ -37,8 +59,8 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero-bg min-h-screen flex items-center pt-16">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+  <section class="hero-bg min-h-screen flex items-center pt-16 section-animate">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
       <div>
         <h1 class="text-6xl md:text-7xl font-bold leading-tight">Hi, I'm <span class="text-emerald-400">Sarasi Madahasi</span></h1>
         <p class="mt-4 text-2xl text-slate-400">Third-Year Computer Engineering Undergraduate<br>AI/ML Engineer & Full-Stack Developer</p>
@@ -51,21 +73,25 @@
           </a>
         </div>
       </div>
-      <div class="flex justify-center">
-        <img src="profile.jpg" alt="Sarasi Madahasi" class="w-80 h-80 object-cover rounded-3xl shadow-2xl border-4 border-emerald-400">
+      <div class="relative w-80 h-80 rounded-full border-4 border-emerald-400 shadow-2xl overflow-hidden bg-slate-900 mx-auto md:mx-0">
+        <img 
+          src="profile.jpg" 
+          alt="Sarasi Madahasi" 
+          class="w-full h-full object-cover rounded-full p-5"
+        />
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="py-24 bg-slate-900">
+  <section id="about" class="py-24 bg-slate-900 section-animate">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <p class="text-xl max-w-3xl mx-auto">Third-year Computer Engineering student at University of Ruhuna with strong experience in AI/ML, computer vision, full-stack development, and DevOps. Passionate about applying technology to real-world problems in healthcare, road safety, and energy management.</p>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="py-24 bg-slate-950">
+  <section id="skills" class="py-24 bg-slate-950 section-animate">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
       <div class="grid md:grid-cols-3 gap-8">
@@ -77,20 +103,22 @@
   </section>
 
   <!-- PROJECTS (now with more details + links) -->
-  <section id="projects" class="py-24 bg-slate-900">
-    <div class="max-w-6xl mx-auto px-6">
+  <section id="projects" class="py-24 bg-slate-900 section-animate">
+    <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-5">
 
         <!-- Skin Cancer -->
-        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8 ">
           <img src="images/skin-cancer.png" alt="Skin Cancer Detection System" class="w-full h-48 object-cover rounded-t-3xl mb-4">
-          <h3 class="text-xl font-semibold">Skin Cancer Stage Detection System</h3>
+          <h3 class="text-xl font-semibold">AI-Powered Dermatology Diagnostic System</h3>
           <p class="text-emerald-400 text-sm mt-1">AI Dermatology Diagnostic Tool</p>
-          <p class="mt-4 text-slate-300">U-Net++ for lesion segmentation, CNN for melanoma classification, ABCD feature extraction & automated PDF report generation for clinicians.</p>
+          <p class="mt-4 text-slate-300">Presented at Rextro 2025 – Silver Jubilee Exhibition in the Biomedical Zone. Combines AI-based skin lesion segmentation with clinically interpretable ABCD analysis for early melanoma detection. Designed as a decision-support tool with focus on interpretability, patient safety, and data privacy.</p>
+          <p class="mt-4 text-slate-300">Key Technical Components: U-Net++ for accurate skin lesion segmentation with dense skip connections, CNN-based classifier for lesion diagnosis and melanoma probability estimation, ABCD feature extraction, and automated PDF report generation for clinicians.</p>
           <p class="mt-4 text-xs text-slate-500">Python • TensorFlow/PyTorch • OpenCV</p>
+          <p class="mt-4 text-xs text-slate-400">Team: Abishek Jayathilake, Layuri Sooriyaarachchi, Dulakshi Madhavika, Avishka Weerasekara, Sayuru Priyanjana<br>Supervised by: Dr. Tharindu Gamage, Mr. Gihan Rangana</p>
           <div class="mt-6 flex gap-4">
-            <a href="https://github.com/YOUR-GITHUB-LINK" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/Abisheksensi/skin-cancer-api" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i>  GitHub</a>
             <a href="https://your-demo-link.com" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
@@ -108,12 +136,28 @@
           </div>
         </div>
 
+        <!-- Sentiment Analyzer -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/sentiment-analysis.png" alt="Sentiment Analysis Web App" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">Sentiment Feedback Analyzer</h3>
+          <p class="text-emerald-400 text-sm mt-1">Python + Flask ML Web App</p>
+          <p class="mt-4 text-slate-300">Analyzes customer reviews in real-time, classifying sentiment as Positive or Negative and showing a confidence score. Includes sentiment trend tracking and live visualization of feedback through a progress bar and recent reviews list.</p>
+          <p class="mt-4 text-slate-300">Implements a full ML workflow: preprocessing, TF-IDF feature extraction, logistic regression training, and Flask web interface for real-time inference.</p>
+          <p class="mt-4 text-xs text-slate-500">Python • Flask • Scikit-learn • NLTK • Pandas</p>
+          <div class="mt-6 flex gap-4">
+            <a href="https://lnkd.in/g4dbtzwW" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
+          </div>
+        </div>
+
         <!-- MindBridge -->
         <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
           <img src="images/mindbridge.png" alt="MindBridge Mental Health Platform" class="w-full h-48 object-cover rounded-t-3xl mb-4">
-          <h3 class="text-xl font-semibold">MindBridge – Mental Health Platform</h3>
-          <p class="mt-4 text-slate-300">AI chatbot, anonymous therapist matching, peer support communities and wellness tools.</p>
+          <h3 class="text-xl font-semibold">MindBridge – Mental Health & Suicide Prevention Platform</h3>
+          <p class="mt-4 text-slate-300">A safe online platform designed to reduce stigma and improve access to mental health care in Sri Lanka. Addresses the problem of limited anonymous support by connecting users with AI chatbots, licensed therapists, and peer support communities.</p>
+          <p class="mt-4 text-slate-300">Key Features: Intelligent AI chatbot with empathetic responses and emergency detection, anonymous therapist matching, moderated peer support forums, breathing exercises, inspirational quotes, and instant access without sign-ups. Includes voice typing for hands-free interaction and direct emergency hotline connections.</p>
           <p class="mt-4 text-xs text-slate-500">React.js • Node.js • Express.js</p>
+          <p class="mt-4 text-xs text-slate-400">Team: PixelFix (Abishek Jayathilake, Layuri Sooriyaarachchi, Nilanka Maduwantha, Avishka Weerasekara)</p>
           <div class="mt-6 flex gap-4">
             <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
             <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
@@ -123,9 +167,12 @@
         <!-- Road Accident -->
         <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
           <img src="images/road-accident.jpg" alt="Road Accident Risk Prediction" class="w-full h-48 object-cover rounded-t-3xl mb-4">
-          <h3 class="text-xl font-semibold">Context-Aware Road Accident Risk Prediction</h3>
-          <p class="mt-4 text-slate-300">ANN model predicting low/medium/high risk based on contextual driving conditions.</p>
-          <p class="mt-4 text-xs text-slate-500">TensorFlow • Scikit-learn • Pandas</p>
+          <h3 class="text-xl font-semibold">Context-Aware Road Accident Risk Prediction Using ANN</h3>
+          <p class="text-emerald-400 text-sm mt-1">Ongoing</p>
+          <p class="mt-4 text-slate-300">Addresses the global concern of road traffic accidents by developing a proactive risk assessment system. Uses Artificial Neural Networks to predict Low, Medium, and High accident risk levels based on contextual driving conditions like time of day, weather, road characteristics, and environmental factors.</p>
+          <p class="mt-4 text-slate-300">Methodology includes feature engineering from temporal, environmental, and road-related attributes, data preprocessing with one-hot encoding, ANN training with ReLU activation and softmax output, and evaluation using accuracy, precision, recall, and F1-score. Trained on ~12,000 historical accident records from RTA Dataset.</p>
+          <p class="mt-4 text-xs text-slate-500">TensorFlow • Scikit-learn • Pandas • Keras</p>
+          <p class="mt-4 text-xs text-slate-400">Team: Dambewela D.M.T.D.B, Hangawaththa N.H.A.G.M, Sooriyaarachchi L.L.</p>
           <div class="mt-6 flex gap-4">
             <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
             <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
@@ -135,24 +182,44 @@
         <!-- Expense Tracker -->
         <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
           <img src="images/expense-tracker.jpg" alt="Personal Expense Tracker" class="w-full h-48 object-cover rounded-t-3xl mb-4">
-          <h3 class="text-xl font-semibold">Personal Expense Tracker (DevOps)</h3>
-          <p class="mt-4 text-slate-300">Full-stack expense app with automated CI/CD pipelines, Docker & AWS deployment.</p>
-          <p class="mt-4 text-xs text-slate-500">React • Node.js • Docker • Jenkins • AWS</p>
+          <h3 class="text-xl font-semibold">Personal Expense Tracker (DevOps Automation)</h3>
+          
+          <p class="mt-4 text-slate-300">A full-stack expense management web app with secure authentication, real-time dashboards, filtering, and responsive UI. Built end-to-end with containerized services, automated CI/CD, and cloud deployment.</p>
+          <p class="mt-4 text-slate-300">Highlights: JWT + bcrypt authentication, CRUD expense tracking, category/time filtering, real-time summaries, Docker containers, Terraform infrastructure, Jenkins CI/CD pipeline, and AWS EC2 deployment with persistent MongoDB storage.</p>
+          <p class="mt-4 text-xs text-slate-500">MERN • Docker • Terraform • Jenkins • AWS</p>
           <div class="mt-6 flex gap-4">
-            <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
+            <a href="https://github.com/Sarasii22/Expense-Tracker---Devops" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="http://54.243.18.183" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
         <!-- VisionX -->
         <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
           <img src="images/visionx.jpg" alt="VisionX Smart Occupancy Detection" class="w-full h-48 object-cover rounded-t-3xl mb-4">
-          <h3 class="text-xl font-semibold">VisionX – Smart Occupancy Detection</h3>
-          <p class="mt-4 text-slate-300">Real-time computer vision system using RGB/thermal cameras for energy management.</p>
-          <p class="mt-4 text-xs text-slate-500">OpenCV • TensorFlow • IoT</p>
+          <h3 class="text-xl font-semibold">VisionX – Smart Occupancy & Device Control</h3>
+          <p class="text-emerald-400 text-sm mt-1">Ongoing</p>
+          <p class="mt-4 text-slate-300">A vision-based intelligent automation system for large halls that detects people, estimates zone occupancy, and triggers device control decisions to improve energy efficiency. Uses a YOLO-based human detector with preprocessing, temporal smoothing, and hysteresis logic to avoid false triggers.</p>
+          <p class="mt-4 text-slate-300">Key elements: real-time camera input (live or recorded), YOLO person detection, zone segmentation with centroid mapping, occupancy counting, and simulated IoT device control via a visual dashboard. Designed for scalability, stability, and minimal false activations in indoor environments.</p>
+          
+          <p class="mt-4 text-xs text-slate-500">Python • OpenCV • PyTorch • YOLO • IoT Simulation</p>
+          <p class="mt-4 text-xs text-slate-400">Team: Dambewela D.M.T.D.B, Hangawaththa N.H.A.G.M, Sooriyaarachchi L.L.</p>
           <div class="mt-6 flex gap-4">
             <a href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
             <a href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
+          </div>
+        </div>
+
+        <!-- Pawish -->
+        <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+          <img src="images/pawish.jpg" alt="Pawish Pet Care & Adoption Platform" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <h3 class="text-xl font-semibold">Pawish – Pet Care & Adoption Platform</h3>
+          <p class="text-emerald-400 text-sm mt-1">MERN Stack Web Application</p>
+          <p class="mt-4 text-slate-300">A full-stack platform connecting homeless pets with loving families while digitally supporting shelters. Features pet browsing, adoption applications, lost & found alerts, donations, and an admin dashboard for management.</p>
+          <p class="mt-4 text-slate-300">Includes secure JWT authentication, encrypted passwords, file uploads for pet images, and a responsive UI with smooth animations. Built as part of 4th-semester Web Application Development module.</p>
+          <p class="mt-4 text-xs text-slate-500">React • Node.js • Express.js • MongoDB Atlas • JWT • bcrypt • Multer</p>
+          <div class="mt-6 flex gap-4">
+            <a href="https://github.com/Sarasii22/Pawish" target="_blank" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://lnkd.in/g3xTAVpU" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">Live Demo</a>
           </div>
         </div>
 
@@ -168,11 +235,83 @@
     <h2 class="text-3xl font-bold text-center mb-10">More Projects</h2>
     <div class="grid md:grid-cols-3 gap-6">
       <!-- Simple card example -->
-      <div class="bg-slate-900 p-6 rounded-2xl">
-        <h3 class="text-lg font-semibold">Sleep Quality Prediction</h3>
-        <p class="text-sm text-slate-400 mt-2">ML model comparing classifiers on lifestyle factors</p>
-        <p class="text-xs text-slate-500 mt-3">Python • Scikit-learn • Pandas</p>
-        <a href="#" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/sleep-quality.jpg" alt="Sleep Quality Prediction" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">Sleep Quality Prediction</h3>
+          <p class="text-emerald-400 text-sm mt-1">Ongoing</p>
+          <p class="text-sm text-slate-400 mt-2">ML model comparing classifiers on lifestyle factors</p>
+          <p class="text-xs text-slate-500 mt-3">Python • Scikit-learn • Pandas</p>
+          <a href="#" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/smart-lighting.jpg" alt="Smart Adaptive Lighting System" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">Smart Adaptive Lighting System for Shared Rooms - (Group Project)</h3>
+          <p class="text-emerald-400 text-sm mt-1">Ongoing</p>
+          <p class="text-sm text-slate-400 mt-2">Embedded system that automatically adjusts room lighting based on occupancy and ambient light using sensors and microcontroller.</p>
+          <p class="text-xs text-slate-500 mt-3">Arduino • ESP32 • LDR • PIR • LED</p>
+          <a href="#" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/task-management.jpeg" alt="Networking-Based Task Management System" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">Networking-Based Task Management System - (Group Project)</h3>
+          <p class="text-sm text-slate-400 mt-2">A system where multiple users on the same network can log in and collaborate in real-time on tasks, seeing updates instantly.</p>
+          <p class="text-xs text-slate-500 mt-3">React.js • Node.js • Express • WebSocket</p>
+          <a href="https://github.com/Avishka-Weerasekara/task-board" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/bus-booking.jpg" alt="Bus Booking and Management System" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">Real Time Bus Ticketing System - (Group Project)</h3>
+          <p class="text-emerald-400 text-sm mt-1">Ongoing</p>
+          <p class="text-sm text-slate-400 mt-2">A complete system for bus booking where admins manage routes and schedules, users book seats, and real-time monitoring with planned GPS tracking.</p>
+          <p class="text-xs text-slate-500 mt-3">React • Shadcn UI • Firebase • Flutter</p>
+          <a href="https://github.com/ChathuniRathnayake/Bus_Ticket_Issuing_App" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/ceylonbliss.png" alt="CeylonBliss Travel Destination Guide" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">CeylonBliss – Travel Destination Guide</h3>
+          <p class="text-sm text-slate-400 mt-2">A travel destination guide for Sri Lanka, bringing hidden gems to the screen with vibrant visuals and smooth navigation.</p>
+          <p class="text-xs text-slate-500 mt-3">React.js • Node.js • SQLite</p>
+          <a href="https://github.com/Sarasii22/GUI-Travel-Destination-Guide-new" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/mindbloom.png" alt="MindBloom Mental Wellness Platform" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">MindBloom – Mental Wellness Platform</h3>
+          <p class="text-emerald-400 text-sm mt-1">DesignHer Competition – Top 10</p>
+          <p class="text-sm text-slate-400 mt-2">A responsive web platform for mental wellness for girls, offering mood tracking, journaling, and meditation tools. Built with React and CSS, focusing on user-friendly design and seamless responsiveness.</p>
+          <p class="text-xs text-slate-500 mt-3">React • CSS</p>
+          <a href="https://github.com/Sarasii22/DesignHer-MindBloom" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/qa-todo-testing.webp" alt="End-to-End QA on ToDo Application" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">End-to-End Quality Assurance for ToDo Application</h3>
+          <p class="text-emerald-400 text-sm mt-1">TDD/BDD • Automation • CI/CD Integration</p>
+          <p class="text-sm text-slate-400 mt-2">Performed complete quality assurance on a ToDo web app using Test-Driven Development (TDD) and Behavior-Driven Development (BDD). Included automated UI testing (Selenium), API testing (Postman), unit tests, performance testing (JMeter), security checks (OWASP), defect tracking (Jira), and code quality analysis (SonarQube), with full CI/CD pipeline via GitHub Actions.</p>
+          <p class="text-xs text-slate-500 mt-3">React.js • Node.js • Express.js • Spring Boot • Selenium • Postman • JMeter • GitHub Actions • SonarQube • Jira</p>
+          <a href="https://github.com/Sarasii22/YOUR-REPO-NAME" class="mt-4 inline-block text-emerald-400 hover:underline">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="bg-slate-900 rounded-2xl overflow-hidden">
+        <img src="images/fitease-figma.png" alt="FitEase Women's Fitness App Prototype" class="w-full h-32 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold">FitEase – Women's Fitness App Prototype</h3>
+          <p class="text-emerald-400 text-sm mt-1">UI/UX Design in Figma</p>
+          <p class="text-sm text-slate-400 mt-2">Mobile fitness app prototype tailored for women's workout goals, featuring clean, empowering interface with routine tracking, progress visualization, and user-friendly navigation. Focused on health & wellness in a supportive design.</p>
+          <p class="text-xs text-slate-500 mt-3">Figma • UI/UX Design • Mobile Prototyping</p>
+          <a href="https://www.figma.com/proto/tbHu1qOeOC3TaWLftMhdHq/Untitled?node-id=1-2&starting-point-node-id=1%3A2&t=kmQcZ6qRwzZ9Mdya-1" target="_blank" class="mt-4 inline-block text-emerald-400 hover:underline">View Prototype in Figma →</a>
+        </div>
       </div>
       <!-- Repeat for others -->
     </div>
@@ -180,7 +319,7 @@
 </section>
 
   <!-- UNIVERSITY ENGAGEMENTS -->
-  <section id="engagements" class="py-24 bg-slate-950">
+  <section id="engagements" class="py-24 bg-slate-950 section-animate">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">University Engagements</h2>
       <div class="grid md:grid-cols-3 gap-8">
@@ -192,7 +331,7 @@
         <div class="bg-slate-900 p-8 rounded-3xl">
           <img src="images/rextro.png" alt="ReXtro 2025 Silver Jubilee Exhibition" class="w-full h-48 object-cover rounded-t-3xl mb-4">
           <p class="font-semibold text-emerald-400">ReXtro – 2025 Silver Jubilee Exhibition</p>
-          <p class="text-slate-400">Team Member – Event Management Committee<br>(Team Lead – Guest Lectures)</p>
+          <p class="text-slate-400">Team Member – Event Management Committee (2025)<br>(Team Lead – Guest Lectures)</p>
         </div>
         <div class="bg-slate-900 p-8 rounded-3xl">
           <img src="images/mehewara.jpg" alt="Mehewara Rural Education Support" class="w-full h-48 object-cover rounded-t-3xl mb-4">
@@ -214,12 +353,64 @@
           <p class="font-semibold text-emerald-400">Red Cypher 2.0</p>
           <p class="text-slate-400">Team SudoQ participated in Red Cypher 2.0 – Decode. Exploit. Capture the Flag, a cybersecurity CTF competition by IEEE Computer Society – University of Ruhuna. Finished among the Top 20 teams. Teammates: Jayani Perera, Layuri Sooriyaarachchi.</p>
         </div>
+        <div class="bg-slate-900 p-8 rounded-3xl">
+          <img src="images/designher.jpg" alt="DesignHer 1.0" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+          <div>
+            <p class="font-semibold text-emerald-400">DesignHer 1.0 – Web Development Workshop Series</p>
+            <p class="text-slate-400">Winner - Organized by WIE Affinity Group, IEEE Student Branch, University of Ruhuna (2025/2026)<br>
+            • Workshop 1: UI/UX with Figma<br>• Workshop 2: Front-End with React<br>• Hands-on learning & practical projects</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="py-24 bg-slate-950 section-animate">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Certifications & Achievements</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 1. AI/ML Engineer Stage 1 - SLIIT -->
+        <div class="bg-slate-900 p-8 rounded-3xl text-center card-stagger">
+          <img src="images/cert-ai-ml-sliit.png" alt="AI/ML Engineer Stage 1 Certificate" class="w-35 h-40 mx-auto mb-6 object-contain rounded-lg shadow-lg border border-slate-700">
+          <h3 class="text-xl font-semibold text-emerald-400">AI/ML Engineer - Stage 1</h3>
+          <p class="text-slate-400 mt-2">Centre for Open and Distance Education, SLIIT</p>
+          <p class="text-sm text-slate-500 mt-1">Foundational AI and Machine Learning concepts</p>
+          <a href="https://code.sliit.org/certificates/jpleckrdra" target="_blank" class="mt-4 inline-block bg-emerald-600/20 hover:bg-emerald-600/40 px-5 py-2 rounded-full text-sm text-emerald-400 hover:text-white transition">View Certificate →</a>
+        </div>
+
+        <!-- 2. Python for Beginners - University of Moratuwa -->
+        <div class="bg-slate-900 p-8 rounded-3xl text-center card-stagger">
+          <img src="images/cert-python-uom.png" alt="Python for Beginners Certificate" class="w-35 h-40 mx-auto mb-6 object-contain rounded-lg shadow-lg border border-slate-700">
+          <h3 class="text-xl font-semibold text-emerald-400">Python for Beginners</h3>
+          <p class="text-slate-400 mt-2">Centre for Open & Distance Learning, University of Moratuwa</p>
+          <p class="text-sm text-slate-500 mt-1">Core Python programming fundamentals</p>
+          <a href="https://open.uom.lk/verify" target="_blank" class="mt-4 inline-block bg-emerald-600/20 hover:bg-emerald-600/40 px-5 py-2 rounded-full text-sm text-emerald-400 hover:text-white transition">View Certificate → (RTeVVzmMef)</a>
+        </div>
+
+        <!-- 3. Introduction to Data Science - Cisco -->
+        <div class="bg-slate-900 p-8 rounded-3xl text-center card-stagger">
+          <img src="images/cert-datascience-cisco.png" alt="Introduction to Data Science Certificate" class="w-35 h-40 mx-auto mb-6 object-contain rounded-lg shadow-lg border border-slate-700">
+          <h3 class="text-xl font-semibold text-emerald-400">Introduction to Data Science</h3>
+          <p class="text-slate-400 mt-2">Cisco Networking Academy</p>
+          <p class="text-sm text-slate-500 mt-1">Foundational data science concepts and tools</p>
+          <a href="https://www.credly.com/badges/2ef68b2f-1c06-4bda-aad3-a40405157ba1/linked_in_profile" target="_blank" class="mt-4 inline-block bg-emerald-600/20 hover:bg-emerald-600/40 px-5 py-2 rounded-full text-sm text-emerald-400 hover:text-white transition">View Certificate →</a>
+        </div>
+
+        <!-- 4. Ballerina Coding Challenge Participation -->
+        <div class="bg-slate-900 p-6 rounded-3xl text-center card-stagger border border-slate-800 shadow-lg">
+          <img src="images/cert-ballerina-ieee.png" alt="Innovate with Ballerina Coding Challenge Certificate" class="w-40 h-56 mx-auto mb-6 object-contain rounded-lg shadow-md border border-slate-700">
+          <h3 class="text-xl font-semibold text-emerald-400">Innovate with Ballerina Coding Challenge</h3>
+          <p class="text-slate-400 mt-2 text-sm">Certificate of Participation</p>
+          <p class="text-xs text-slate-500 mt-1">IEEE Student Branch, University of Moratuwa in collaboration with WSO2<br>Held: 19 May – 20 October 2025</p>
+          <a href="YOUR_BALLERINA_CERT_LINK_OR_PDF_URL" target="_blank" class="mt-4 inline-block bg-emerald-600/20 hover:bg-emerald-600/40 px-5 py-2 rounded-full text-sm text-emerald-400 hover:text-white transition">View Certificate →</a>
+        </div>
+        <!-- Add more: e.g., Python for Beginners, AI/ML Stage 1, AWS Fundamentals, etc. -->
       </div>
     </div>
   </section>
 
   <!-- ARTICLES -->
-  <section id="articles" class="py-24 bg-slate-900">
+  <section id="articles" class="py-24 bg-slate-900 section-animate">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Articles & Blog Posts</h2>
       <div class="text-center text-slate-400 mb-12">
@@ -230,16 +421,47 @@
   </section>
 
   <!-- EDUCATION -->
-  <section id="education" class="py-24 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-8">Education</h2>
-      <p class="text-2xl">BSc (Hons) in Computer Engineering</p>
-      <p class="text-slate-400">University of Ruhuna • 2023 – Present</p>
+  <!-- EDUCATION -->
+  <section id="education" class="py-24 bg-slate-950 section-animate">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Education</h2>
+      
+      <div class="space-y-12 max-w-4xl mx-auto">
+
+        <!-- University (most recent) -->
+        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-semibold text-emerald-400">BSc (Hons) in Computer Engineering</h3>
+            <span class="text-sm text-slate-400">2023 – Present</span>
+          </div>
+          <p class="text-lg text-slate-300">University of Ruhuna – Faculty of Engineering, Hapugala, Galle, Sri Lanka</p>
+          <p class="mt-4 text-slate-400">Relevant Coursework:</p>
+          <ul class="mt-2 text-slate-400 list-disc pl-6 space-y-1">
+            <li>Artificial Intelligence, Machine Learning, Image Processing & Computer Vision</li>
+            <li>Data Structures & Algorithms, Web Application Development</li>
+            <li>Operating Systems & Computer Networks, Database Systems</li>
+            <li>Object-Oriented Programming & Design Patterns, Software Architecture & Testing</li>
+            <li>Embedded Systems & Digital Logic Design</li>
+          </ul>
+        </div>
+
+        <!-- A/L School -->
+        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-semibold text-emerald-400">GCE Advanced Level – Physical Science Stream</h3>
+            <span class="text-sm text-slate-400">2010 – 2022</span>
+          </div>
+          <p class="text-lg text-slate-300">Sujatha Vidyalaya, Matara, Sri Lanka</p>
+          <p class="mt-3 text-slate-400">First Attempt – 2021 (2022)</p>
+          <p class="mt-4 text-sm text-slate-500 italic">Foundation for pursuing Computer Engineering and strong interest in Mathematics, Physics, and logical problem-solving.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-24 bg-slate-900 text-center">
+  <section id="contact" class="py-24 bg-slate-900 text-center section-animate">
     <h2 class="text-4xl font-bold mb-8">Let's Connect</h2>
     <p class="text-xl">sarasimadahasi@gmail.com • +94 71 315 9665</p>
     <div class="flex justify-center gap-8 text-4xl mt-10">
@@ -264,6 +486,40 @@
         button.innerHTML = 'See More Projects ↓';
       }
     }
+
+    // Scroll animations
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('section-animate');
+      observer.observe(section);
+    });
+
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const cards = entry.target.querySelectorAll('.project-card, .bg-slate-900.rounded-2xl, .bg-slate-900.p-8.rounded-3xl, .card-stagger');
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('visible');
+            }, index * 120);
+          });
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('#projects .grid, #more-projects .grid, #engagements .grid, #certifications .grid').forEach(grid => {
+      staggerObserver.observe(grid);
+    });
   </script>
 
 </body>
