@@ -95,7 +95,7 @@
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-3xl"><h3 class="text-emerald-400 text-xl mb-4">AI & Machine Learning</h3><p class="text-slate-400">ANN, CNN, U-Net++, NLP, Scikit-learn, TensorFlow, PyTorch, Pandas, NumPy</p></div>
+        <div class="bg-slate-900 p-8 rounded-3xl"><h3 class="text-emerald-400 text-xl mb-4">AI & Machine Learning</h3><p class="text-slate-400">ANN, CNN, U-Net++, NLP, Scikit-learn, TensorFlow, PyTorch, Pandas, NumPy,LLMs, RAG, LangChain, Prompt Engineering, Vector Databases (Pinecone)</p></div>
         <div class="bg-slate-900 p-8 rounded-3xl"><h3 class="text-emerald-400 text-xl mb-4">Web & Full-Stack</h3><p class="text-slate-400">React.js, Node.js, Express.js, Flask, HTML/CSS/JS, MongoDB, SQLite</p></div>
         <div class="bg-slate-900 p-8 rounded-3xl"><h3 class="text-emerald-400 text-xl mb-4">DevOps & Hardware</h3><p class="text-slate-400">Docker, Jenkins, AWS, CI/CD, OpenCV, Arduino/ESP32, Linux</p></div>
       </div>
@@ -107,7 +107,49 @@
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
       <div class="grid md:grid-cols-2 gap-5">
+        <!-- Medical Chatbot -->
+          <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8">
+            <img src="images/medical-chatbot.png" alt="AI Medical Chatbot" class="w-full h-48 object-cover rounded-t-3xl mb-4">
+            
+            <h3 class="text-xl font-semibold">Medical RAG Chatbot (Context-Aware QA System)</h3>
+            <p class="text-emerald-400 text-sm mt-1">LLM + Retrieval-Augmented Generation</p>
 
+            <p class="mt-4 text-slate-300">
+              A context-aware AI medical chatbot designed to answer user queries strictly based on a trusted medical knowledge source (Gale Encyclopedia of Medicine). The system addresses a critical limitation of large language models — hallucination — by ensuring responses are grounded only in retrieved document context.
+            </p>
+
+            <p class="mt-4 text-slate-300">
+              Built using a Retrieval-Augmented Generation (RAG) pipeline, the chatbot converts medical documents into vector embeddings and stores them in Pinecone. When a user asks a question, the system performs semantic search to retrieve the most relevant content and generates precise, controlled answers using a locally hosted LLM (LLaMA3 via Ollama).
+            </p>
+
+            <p class="mt-4 text-slate-300">
+              Implemented strict prompt engineering rules to enforce structured outputs (definitions, treatments, types) and prevent mixing of unrelated medical information. The system also includes a fallback mechanism that explicitly informs users when the required information is not available in the knowledge base.
+            </p>
+
+            <p class="mt-4 text-slate-300">
+              This project demonstrates practical application of LLMs in high-stakes domains like healthcare, focusing on reliability, explainability, and safe AI behavior.
+            </p>
+
+            <p class="mt-4 text-slate-300">
+              Designed to avoid hallucinations by restricting responses only to retrieved document context, improving reliability for sensitive domains like healthcare.
+            </p>
+
+            <p class="mt-4 text-xs text-slate-500">
+              Python • Flask • LangChain • Pinecone • Ollama (LLaMA3) • HuggingFace Embeddings
+            </p>
+
+            <div class="mt-6 flex gap-4">
+              <a href="https://github.com/Sarasii22/Medical-Chatbot" target="_blank" 
+                class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl text-sm flex items-center gap-2">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7451507989280210944/" target="_blank" 
+                class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl text-sm">
+                Live Demo
+              </a>
+            </div>
+          </div>
         <!-- Skin Cancer -->
         <div class="project-card bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 p-8 ">
           <img src="images/skin-cancer.png" alt="Skin Cancer Detection System" class="w-full h-48 object-cover rounded-t-3xl mb-4">
